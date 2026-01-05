@@ -1,5 +1,7 @@
+import CategoryDisplay from "@/components/categoryDisplay";
+
 const ShirtsCategory = () => {
-  return <div>ShirtsCategory</div>;
+  return <CategoryDisplay category="shirts" />;
 };
 
 export default ShirtsCategory;

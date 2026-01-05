@@ -17,7 +17,7 @@ export const CATEGORIES: CategoriesType[] = [
     category: "Shirt",
     coverImg: "/products/shirts_coverImg.jpeg",
     total_item: 40,
-    linkPath: "/product-category/shirt",
+    linkPath: "/product-category/shirts",
   },
 
   {
@@ -35,14 +35,13 @@ export const CATEGORIES: CategoriesType[] = [
   },
 ];
 
-export const CART = [
-  {
-    id: 0,
-    name: "ADIDAS YEEZY 700 COPPER FADE SNEAKERS",
-    category: "shoes",
-    price: "$300",
-    imgUrl: "/products/adidas_yeezy_sneaker.jpeg",
-    quantity: 1,
-  },
-];
-
+// export const CART = [
+//   {
+//     id: 0,
+//     name: "ADIDAS YEEZY 700 COPPER FADE SNEAKERS",
+//     category: "shoes",
+//     price: "$300",
+//     imgUrl: "/products/adidas_yeezy_sneaker.jpeg",
+//     quantity: 1,
+//   },
+// ];

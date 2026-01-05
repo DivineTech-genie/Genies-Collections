@@ -7,7 +7,7 @@ import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 const ProductsDisplay = () => {
-  const { addQuantity } = useBagQuantity();
+  const { addToCart } = useBagQuantity();
   const pathname = usePathname() ?? "";
 
   const matchedProduct = PRODUCTS.find(
@@ -21,7 +21,12 @@ const ProductsDisplay = () => {
       {/* Display different angles of the shoe */}
       <div>
         {imageUrl ? (
-          <Image src={imageUrl} alt="Shoe image" width={200} height={200} />
+          <Image
+            src={imageUrl}
+            alt={`${matchedProduct?.name}`}
+            width={200}
+            height={200}
+          />
         ) : (
           <div>No image found</div>
         )}
@@ -31,7 +36,7 @@ const ProductsDisplay = () => {
       <div>
         <p>{matchedProduct?.category}</p>
         <h1>{matchedProduct?.name}</h1>
-        <p>{matchedProduct?.price}</p>
+        <p>${matchedProduct?.price}</p>
 
         <div>
           <p>Size</p>
@@ -41,7 +46,17 @@ const ProductsDisplay = () => {
           </select>
         </div>
         <Button
-          onClick={() => addQuantity(1, imageUrl ?? "")}
+          onClick={() =>
+            matchedProduct &&
+            addToCart({
+              id: matchedProduct.id,
+              name: matchedProduct.name,
+              price: matchedProduct.price,
+              imgUrl: imageUrl ?? "",
+              category: matchedProduct.category,
+              quantity: 1,
+            })
+          }
           className="cursor-pointer bg-zinc-400 rounded-lg text-white"
         >
           Add to Cart

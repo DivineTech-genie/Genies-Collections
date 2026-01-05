@@ -1,6 +1,7 @@
 "use client";
 
 import { useBagQuantity } from "@/context/bagQuantity";
+import Link from "next/link";
 
 export const SubNav = () => {
   return (
@@ -35,7 +36,9 @@ export const Nav = () => {
         <ul className="flex space-x-2">
           <li>Search</li>
           <li>
-            Bag <small>{quantity}</small>
+            <Link href="/cart">
+              Bag <small>{quantity}</small>
+            </Link>
           </li>
         </ul>
       </div>

@@ -1,5 +1,7 @@
+import CategoryDisplay from "@/components/categoryDisplay";
+
 const AccessoriesCategory = () => {
-  return <div>AccessoriesCategory</div>;
+  return <CategoryDisplay category="accessories" />;
 };
 
 export default AccessoriesCategory;

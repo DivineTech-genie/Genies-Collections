@@ -1,5 +1,7 @@
+import CategoryDisplay from "@/components/categoryDisplay";
+
 const BagsCategory = () => {
-  return <div>BagsCategory</div>;
+  return <CategoryDisplay category="bags" />;
 };
 
 export default BagsCategory;
