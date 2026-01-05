@@ -24,7 +24,7 @@ export const PRODUCTS: PRODUCT_TYPE[] = [
   },
 
   {
-    id: 3,
+    id: 2,
     name: "BALANCES CLASSIC",
     category: "shirts",
     price: 800,
