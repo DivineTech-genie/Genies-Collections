@@ -33,13 +33,15 @@ const CategoryDisplay = ({ category }: { category: string }) => {
                     .replace(/\s+/g, "-")
                     .toLowerCase()}`}
                 >
-                  <Image
-                    src={imgUrl}
-                    alt={name}
-                    width={200}
-                    height={200}
-                    className="rounded-2xl"
-                  />
+                  <div className="overflow-hidden rounded-2xl w-50 h-50">
+                    <Image
+                      src={imgUrl}
+                      alt={name}
+                      width={200}
+                      height={200}
+                      className="object-cover w-full h-full transform transition-transform duration-300 ease-in-out hover:scale-200"
+                    />
+                  </div>
                   <h3>{name}</h3>
                   <p>{price}</p>
                 </Link>

@@ -35,7 +35,9 @@ const CartBag = () => {
               >
                 +
               </button>
-              <p className="text-sm text-gray-600">${(item.price * item.quantity).toFixed(2)}</p>
+              <p className="text-sm text-gray-600">
+                ${(item.price * item.quantity).toFixed(2)}
+              </p>
             </div>
           </div>
 

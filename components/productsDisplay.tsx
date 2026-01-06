@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useBagQuantity } from "@/context/bagQuantity";
 import { PRODUCTS } from "@/lib/products";
 import { productPath } from "@/lib/utils";
-import Image from "next/image";
+import ZoomImage from "@/components/zoomAnimation";
 import { usePathname } from "next/navigation";
 
 const ProductsDisplay = () => {
@@ -21,18 +21,21 @@ const ProductsDisplay = () => {
       {/* Display different angles of the shoe */}
       <div>
         {imageUrl ? (
-          <Image
-            src={imageUrl}
-            alt={`${matchedProduct?.name}`}
-            width={200}
-            height={200}
-          />
+          <div className="w-100 h-100 rounded-lg">
+            <ZoomImage
+              src={imageUrl}
+              alt={`${matchedProduct?.name ?? ""}`}
+              width={400}
+              height={400}
+              zoomScale={1.8}
+            />
+          </div>
         ) : (
           <div>No image found</div>
         )}
       </div>
 
-      {/* About the shoe  and add to cart*/}
+      {/* About the product and add to cart*/}
       <div>
         <p>{matchedProduct?.category}</p>
         <h1>{matchedProduct?.name}</h1>
