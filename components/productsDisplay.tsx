@@ -17,29 +17,52 @@ const ProductsDisplay = () => {
   const imageUrl: string | undefined = matchedProduct?.imgUrl;
 
   return (
-    <div>
+    <div className="flex justify-around mt-12">
       {/* Display different angles of the shoe */}
       <div>
-        {imageUrl ? (
-          <div className="w-100 h-100 rounded-lg">
-            <ZoomImage
-              src={imageUrl}
-              alt={`${matchedProduct?.name ?? ""}`}
-              width={400}
-              height={400}
-              zoomScale={1.8}
-            />
-          </div>
-        ) : (
-          <div>No image found</div>
-        )}
+        <div>
+          {imageUrl ? (
+            <div className="w-full h-[75vh]">
+              <ZoomImage
+                src={imageUrl}
+                alt={matchedProduct?.name}
+                width={400}
+                height={400}
+                zoomScale={1.4}
+              />
+            </div>
+          ) : (
+            <div>No image found</div>
+          )}
+        </div>
+
+        {/* Sub images */}
+        <div className="mt-12">
+          {matchedProduct?.subImgUrl && (
+            <div className="grid grid-cols-2 space-y-4 space-x-4">
+              {matchedProduct.subImgUrl.map((url, index) => (
+                <div key={index} className="w-52 h-52">
+                  <ZoomImage
+                    src={url}
+                    alt={`${matchedProduct.name} sub image ${index + 1}`}
+                    width={400}
+                    height={400}
+                    zoomScale={4.0}
+                  />
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
       </div>
 
       {/* About the product and add to cart*/}
       <div>
         <p>{matchedProduct?.category}</p>
         <h1>{matchedProduct?.name}</h1>
-        <p>${matchedProduct?.price}</p>
+        <p>
+          {matchedProduct?.price ? `$${matchedProduct.price.toFixed(2)}` : ""}
+        </p>
 
         <div>
           <p>Size</p>

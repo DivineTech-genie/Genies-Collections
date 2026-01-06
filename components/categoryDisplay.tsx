@@ -1,6 +1,7 @@
 import { PRODUCTS } from "@/lib/products";
 import Image from "next/image";
 import Link from "next/link";
+import { productPath } from "@/lib/utils";
 
 const CategoryDisplay = ({ category }: { category: string }) => {
   return (
@@ -28,22 +29,18 @@ const CategoryDisplay = ({ category }: { category: string }) => {
           {PRODUCTS.filter((product) => product.category === category).map(
             ({ id, name, category, price, imgUrl }) => (
               <div key={id}>
-                <Link
-                  href={`/product-category/${category}/${name
-                    .replace(/\s+/g, "-")
-                    .toLowerCase()}`}
-                >
-                  <div className="overflow-hidden rounded-2xl w-50 h-50">
+                <Link href={productPath(category, name)}>
+                  <div className="overflow-hidden rounded-2xl w-52 h-52">
                     <Image
                       src={imgUrl}
                       alt={name}
                       width={200}
                       height={200}
-                      className="object-cover w-full h-full transform transition-transform duration-300 ease-in-out hover:scale-200"
+                      className="object-cover w-full h-full transform transition-transform duration-300 ease-in-out hover:scale-110"
                     />
                   </div>
                   <h3>{name}</h3>
-                  <p>{price}</p>
+                  <p>${price.toFixed(2)}</p>
                 </Link>
               </div>
             )
