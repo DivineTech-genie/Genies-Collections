@@ -4,6 +4,7 @@ type PRODUCT_TYPE = {
   category: string;
   price: number;
   imgUrl: string;
+  subImgUrl?: string[];
 };
 
 export const PRODUCTS: PRODUCT_TYPE[] = [
@@ -21,6 +22,11 @@ export const PRODUCTS: PRODUCT_TYPE[] = [
     category: "shoes",
     price: 400,
     imgUrl: "/products/air_jordan_shoes.jpeg",
+    subImgUrl: [
+      "/products/air_jordan_shoes(1).jpeg",
+      "/products/air_jordan_shoes(2).jpeg",
+      "/products/air_jordan_shoes(3).jpeg",
+    ],
   },
 
   {

@@ -26,7 +26,7 @@ export const Nav = () => {
       {/* main nav */}
 
       <div className="flex justify-between w-11/12 mx-auto">
-        <h1>DC Store</h1>
+        <h1>Marques Genie</h1>
 
         <ul className="flex space-x-2">
           <li>Shop Categories</li>

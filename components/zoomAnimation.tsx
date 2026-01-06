@@ -63,6 +63,16 @@ const ZoomImage = ({
     }
   };
 
+  // cancel any pending raf on unmount
+  useEffect(() => {
+    return () => {
+      if (rafRef.current) {
+        cancelAnimationFrame(rafRef.current);
+        rafRef.current = null;
+      }
+    };
+  }, []);
+
   const transition = reduceMotion ? "none" : "transform 200ms ease";
 
   return (
@@ -78,11 +88,12 @@ const ZoomImage = ({
         alt={alt}
         width={width}
         height={height}
-        className={`object-cover w-full h-full ${className ?? ""}`}
+        className={`object-cover w-full h-full rounded-2xl ${className ?? ""}`}
         style={{
           transformOrigin: "var(--x, 50%) var(--y, 50%)",
           transform: isZoomed ? `scale(${zoomScale})` : "scale(1)",
           transition,
+          transitionDelay: isZoomed ? "800ms" : "0ms",
         }}
       />
     </div>
